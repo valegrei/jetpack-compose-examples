@@ -15,21 +15,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.aiviktor.loteria.viewModels.ContadorViewModel
 
 @Composable
-fun Contador() {
+fun Contador(viewModel: ContadorViewModel) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
     ) {
         Text(
-            text = "0",
+            text = viewModel.contador.value.toString(),
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp
         )
 
         FloatingActionButton(
-            onClick = {},
+            onClick = { viewModel.add() },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(15.dp)
