@@ -59,6 +59,15 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    //OnBoarding
+    implementation(libs.accompanist.pager)
+    //Lottie
+    implementation(libs.lottie.compose)
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
+    //DataStore
+    implementation(libs.androidx.datastore.preferences)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
