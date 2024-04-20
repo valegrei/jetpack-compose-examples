@@ -10,9 +10,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.aiviktor.onboardingapp.dataStore.StoreBoarding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
-fun ButtonFinish(currentPage: Int) {
+fun ButtonFinish(currentPage: Int, navController: NavController, store: StoreBoarding) {
     Row(
         modifier = Modifier
             .padding(bottom = 20.dp)
@@ -20,7 +26,14 @@ fun ButtonFinish(currentPage: Int) {
         horizontalArrangement = if (currentPage != 2) Arrangement.SpaceBetween else Arrangement.Center
     ) {
         if (currentPage == 2) {
-            OutlinedButton(onClick = {}) {
+            OutlinedButton(onClick = {
+                CoroutineScope(Dispatchers.IO).launch{
+                    store.saveBoarding(true)
+                }
+                navController.navigate("Home"){
+                    popUpTo(0)
+                }
+            }) {
                 Text(
                     text = "Entrar", modifier = Modifier
                         .padding(vertical = 8.dp, horizontal = 40.dp),
