@@ -4,12 +4,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aiviktor.roomcronoapp.model.Cronos
 import com.aiviktor.roomcronoapp.repository.CronosRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class CronosViewmodel @Inject constructor(private val repository: CronosRepository): ViewModel() {
     private val _cronosList = MutableStateFlow<List<Cronos>>(emptyList())
     val cronosList = _cronosList.asStateFlow()
