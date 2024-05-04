@@ -64,15 +64,12 @@ fun ContentHomeView(it: PaddingValues, navController: NavController, cronosVM: C
                     onSwipe = {cronosVM.deleteCrono(item)}
                 )
 
-                val delete2 = SwipeAction(
-                    icon = rememberVectorPainter(Icons.Default.Delete),
-                    background = Color.Blue,
-                    onSwipe = {cronosVM.deleteCrono(item)}
-                )
-
-                SwipeableActionsBox(endActions = listOf(delete), swipeThreshold = 270.dp) {
+                SwipeableActionsBox(
+                    endActions = listOf(delete),
+                    swipeThreshold = 270.dp
+                ) {
                     CronCard(item.title, formatTiempo(item.crono)) {
-                        navController.navigate("EditView")
+                        navController.navigate("EditView/${item.id}")
                     }
                 }
 

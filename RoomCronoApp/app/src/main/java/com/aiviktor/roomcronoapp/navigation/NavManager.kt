@@ -1,9 +1,11 @@
 package com.aiviktor.roomcronoapp.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.aiviktor.roomcronoapp.viewmodel.CronometroViewModel
 import com.aiviktor.roomcronoapp.viewmodel.CronosViewmodel
 import com.aiviktor.roomcronoapp.views.AddView
@@ -20,8 +22,11 @@ fun NavManager(cronometroVM: CronometroViewModel, cronosVM: CronosViewmodel){
         composable("AddView"){
             AddView(navController,cronometroVM, cronosVM)
         }
-        composable("EditView"){
-            EditView(navController)
+        composable("EditView/{id}", arguments = listOf(
+            navArgument("id"){type = NavType.LongType}
+        )){
+            val id = it.arguments?.getLong("id")?:0
+            EditView(navController, cronometroVM, cronosVM, id)
         }
     }
 }
