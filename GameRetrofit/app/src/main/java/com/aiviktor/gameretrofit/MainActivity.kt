@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.aiviktor.gameretrofit.navigation.NavManager
 import com.aiviktor.gameretrofit.ui.theme.GameRetrofitTheme
 import com.aiviktor.gameretrofit.viewModel.GamesViewModel
 import com.aiviktor.gameretrofit.views.HomeView
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeView(viewModel = viewModel)
+                    NavManager(viewModel)
                 }
             }
         }
