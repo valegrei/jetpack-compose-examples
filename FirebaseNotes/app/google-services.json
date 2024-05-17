@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "91406944533",
+    "project_id": "fir-notes-c05fc",
+    "storage_bucket": "fir-notes-c05fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91406944533:android:4775934a347ee1a360c11c",
+        "android_client_info": {
+          "package_name": "com.aiviktor.firebasenotes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl3Xbny2lFRVz-uX9DzhGtoO1zyx7DSUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
