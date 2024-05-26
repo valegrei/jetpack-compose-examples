@@ -21,6 +21,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.aiviktor.firebasenotes.components.Alert
 import com.aiviktor.firebasenotes.viewModels.LoginViewModel
 
 @Composable
@@ -66,6 +67,18 @@ fun LoginView(navController: NavController, loginVM: LoginViewModel) {
                 .padding(start = 30.dp, end = 30.dp)
         ){
             Text(text = "Entrar")
+        }
+
+        if(loginVM.showAlert){
+            Alert(
+                title = "Alerta",
+                message = "Usuario y /o Contraseña incorrectos",
+                confirmText = "Aceptar",
+                onConfirmClick = {
+                    loginVM.closeAlert()
+                }) {
+
+            }
         }
     }
 }
