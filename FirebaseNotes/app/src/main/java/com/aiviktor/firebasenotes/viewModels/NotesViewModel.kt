@@ -77,7 +77,7 @@ class NotesViewModel : ViewModel() {
         }
     }
 
-    fun updateNewNote(idDoc: String, onSuccess: () -> Unit) {
+    fun updateNote(idDoc: String, onSuccess: () -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val editNote = hashMapOf(
@@ -91,6 +91,20 @@ class NotesViewModel : ViewModel() {
                     }
             } catch (ex: Exception) {
                 Log.d("ERROR EDIT", "Error al editar ${ex.localizedMessage}")
+            }
+        }
+    }
+
+    fun deleteNote(idDoc: String, onSuccess: () -> Unit) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                firestore.collection("Notes").document(idDoc)
+                    .delete()
+                    .addOnSuccessListener {
+                        onSuccess()
+                    }
+            } catch (ex: Exception) {
+                Log.d("ERROR DELETE", "Error al eliminar ${ex.localizedMessage}")
             }
         }
     }

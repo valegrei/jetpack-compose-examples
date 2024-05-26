@@ -1,13 +1,12 @@
 package com.aiviktor.firebasenotes.views.notes
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -44,9 +43,18 @@ fun EditNoteView(navController: NavController, notesVM: NotesViewModel, idDoc: S
                         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "")
                     }
                 },
+
                 actions = {
                     IconButton(onClick = {
-                        notesVM.updateNewNote(idDoc){
+                        notesVM.deleteNote(idDoc){
+                            navController.popBackStack()
+                        }
+                    }) {
+                        Icon(imageVector = Icons.Default.Delete, contentDescription = "")
+                    }
+
+                    IconButton(onClick = {
+                        notesVM.updateNote(idDoc){
                             navController.popBackStack()
                         }
                     }) {
