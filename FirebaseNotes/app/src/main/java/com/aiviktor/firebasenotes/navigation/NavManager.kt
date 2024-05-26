@@ -8,6 +8,7 @@ import com.aiviktor.firebasenotes.viewModels.LoginViewModel
 import com.aiviktor.firebasenotes.viewModels.NotesViewModel
 import com.aiviktor.firebasenotes.views.login.BlankView
 import com.aiviktor.firebasenotes.views.login.TabsView
+import com.aiviktor.firebasenotes.views.notes.AddNoteView
 import com.aiviktor.firebasenotes.views.notes.HomeView
 
 @Composable
@@ -22,6 +23,9 @@ fun NavManager(loginVM: LoginViewModel, notesVM: NotesViewModel) {
         }
         composable("Home") {
             HomeView(navController, notesVM)
+        }
+        composable("AddNote") {
+            AddNoteView(navController, notesVM)
         }
     }
 }
